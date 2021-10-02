@@ -501,7 +501,8 @@
       flex: 0 0 100%;
     }
   }
- .bottom-box {
-   display: flex;
- }   
+ /* .container { */
+   /* display: flex; */
+   /* flex-direction: row; */
+ /* }    */
  /* come back and work on getting row horizontal */
