@@ -1,5 +1,5 @@
 var cityFormEl = document.querySelector('#city-form');
-// var languageButtonsEl = document.querySelector('#language-buttons');
+var weekAhead = document.querySelector('.week');
 var cityInputEl = document.querySelector('#city');
 var tempContainerEl = document.querySelector('#temp-container');
 var citySearch = document.querySelector('#city-search');
@@ -46,7 +46,7 @@ var getWeatherInfo = function (city) {
         console.log(response);
         response.json().then(function (data) {
           console.log(data);
-          displayWeather(data, city);
+          //displayWeather(data, city);
         });
       } else {
         alert('Error: ' + response.statusText);
@@ -64,7 +64,7 @@ var getFiveDays = function (fivedays) {
   fetch(weatherUrl).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        displayWeather(data.items, fivedays);
+        //displayWeather(data.items, fivedays);
       });
     } else {
       alert('Error: ' + response.statusText);
@@ -74,12 +74,12 @@ var getFiveDays = function (fivedays) {
 
 //NEED TO DISPLAY 5 DAY WEATHER HERE:
 
-var displayWeather = function (wx, citySearching) {
-  if (wx.length === 0) {
-    repoContainerEl.textContent = 'No Weather Information Found';
-    return;
-  }
-  citySearch.textContent = citySearching;
-};
+// var displayWeather = function (wx, citySearching) {
+//  for (var i = 0; i<weekAhead.length;i++) {
+//     repoContainerEl.textContent = 'No Weather Information Found';
+//     return;
+//   }
+//   citySearch.textContent = citySearching;
+// };
 
 cityFormEl.addEventListener('submit', formSubmit);
