@@ -3,6 +3,7 @@ var cityFormEl = document.querySelector('#city-form');
 var cityInputEl = document.querySelector('#city');
 var tempContainerEl = document.querySelector('#temp-container');
 var citySearch = document.querySelector('#city-search');
+var ApiKey='ac6ee46d74fff945f4929327853f7573';
 
 var formSubmit = function (event) {
   event.preventDefault();
@@ -32,7 +33,7 @@ var formSubmit = function (event) {
 // };
 
 var getWeatherInfo = function (city) {
-  var weatherUrl = 'https://weather.com/weather/today/l' + city + '/repos';
+  var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?q="  + city + "&appid=" + ApiKey;
 
   fetch(weatherUrl)
     .then(function (response) {
