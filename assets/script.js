@@ -32,14 +32,11 @@ var formSubmit = function (event) {
 };
 
 var btnClick = function (event) {
-  // `event.target` is a reference to the DOM element of what programming language button was clicked on the page
   var weatherCity = event.target.getAttribute('submit');
   console.log('did this work?')
 
   if (weatherCity) {
     getFiveDays(weatherCity);
-
-    // repoContainerEl.textContent = '';
   }
 };
 
@@ -62,12 +59,6 @@ var getWeatherInfo = function (city) {
           var lon = data.coord.lon;
           getFiveDays(lat,lon,city);
         });
-       /* else {
-        alert('Error: ' + response.statusText); 
-      }*/
-    /*.catch(function (error) {
-      alert('Unable to connect to City');
-    }); */
 };
 
 
@@ -79,11 +70,10 @@ var getFiveDays = function (lat,lon,city) {
     return  response.json() 
   })
   .then(function (data) {
-        //displayWeather(data.items);
      displayWeather(data, city);
   });
-
 };
+
 //NEED TO DISPLAY 5 DAY WEATHER HERE:
 var fiveDayTemp = document.querySelectorAll('.temp');
 var fiveDayWind = document.querySelectorAll('.wind');
@@ -92,12 +82,11 @@ var fiveDayHumidity = document.querySelectorAll('.humidity');
 var displayWeather = function (data, city) {
  for (var i = 0; i < 5;i++) {
    fiveDayTemp[i].textContent= ' ' + data.daily[i].temp.day;
-   console.log(fiveDayTemp); //also tried data.daily[0].temp.day;
    fiveDayWind[i].textContent= ' ' + data.daily[i].wind_speed + "mph";
    fiveDayHumidity[i].textContent= ' ' + data.daily[i].humidity;
   }
   console.log(city);
-  //citySearch.textContent = citySearching;
+  //see what city is being searched
 };
 
 cityFormEl.addEventListener('submit', formSubmit);
