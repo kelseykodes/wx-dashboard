@@ -2,8 +2,13 @@ var cityFormEl = document.querySelector('#city-form');
 var weekAhead = document.querySelector('.week');
 var cityInputEl = document.querySelector('#city');
 var tempContainerEl = document.querySelector('#temp-container');
+var windspeedContainerEl = document.querySelector('#windspeed-container');
+var uviContainerEl = document.querySelector('#uvi-container');
+var humidityContainerEl = document.querySelector('#humidity-container');
 var citySearch = document.querySelector('#city-search');
 var ApiKey='ac6ee46d74fff945f4929327853f7573';
+// var today = moment().format("MMMM Do, YYYY, HH:mm A"); 
+// $("#currentDay").text(today);
 
 var formSubmit = function (event) {
   event.preventDefault();
@@ -13,7 +18,7 @@ var formSubmit = function (event) {
   if (cityname) {
     getWeatherInfo(cityname);
 
-    tempContainerEl.textContent = '';
+    tempContainerEl.textContent = "";
     cityInputEl.value = '';
   } else {
     alert('Please enter a valid city name');
@@ -38,7 +43,7 @@ var btnClick = function (event) {
 };
 
 var getWeatherInfo = function (city) {
-  var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q='  + city + '&appid=' + ApiKey;
+  var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q='  + city + '&appid=' + ApiKey + "&units=imperial";
 
   fetch(weatherUrl)
     .then(function (response) {
@@ -47,9 +52,12 @@ var getWeatherInfo = function (city) {
         response.json().then(function (data) {
           console.log(data);
           //displayWeather(data, city);
+          tempContainerEl.textContent = 'Temp: ' + data.main.temp + ' °F';
+          humidityContainerEl.textContent = 'Humidity: ' + data.main.humidity + '%'
+          windspeedContainerEl.textContent = 'Wind Speed: ' + data.wind.speed;
         });
       } else {
-        alert('Error: ' + response.statusText);
+        alert('Error: ' + response.statusText); 
       }
     })
     .catch(function (error) {

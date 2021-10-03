@@ -16,6 +16,7 @@
         <i class="fas fa-cloud-moon"></i> Welcome To Your Weather Dashboard!
       </h1>
       <p>A Searching Tool To Find The Current Weather In Any City.</p>
+      <p id="currentDay"></p>
     </header>
   
   
@@ -34,11 +35,13 @@
   
       <div class="col-12 col-md-8">
         <h2 class="subtitle">Showing The Tempature For: <span id="city-search"></span></h2>
-        <!-- There needs to be an empty HTML element for us to write repository data to. -->
+        <!-- There needs to be an empty HTML element for us to write weather data to. -->
         <div id="temp-container" class="city-group"></div>
+        <div id="humidity-container" class="city-group"></div>
+        <div id="windspeed-container" class="city-group"></div>
+        <div id="uvi-container" class="city-group"></div>
       </div>
     </main>
-
     <section class="bottom-box container">
         <h4>5-Day Forecast:</h4>
         <section class="five-day ">
