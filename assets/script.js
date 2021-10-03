@@ -23,11 +23,11 @@ var formSubmit = function (event) {
   } else {
     alert('Please enter a valid city name');
   }
-  if (cityname) {
-    getFiveDays(cityname);
-    tempContainerEl.textContent = '';
-    cityInputEl.value = '';
-  }
+  // if (cityname) {
+  //   getFiveDays(cityname);
+  //   tempContainerEl.textContent = '';
+  //   cityInputEl.value = '';
+  // }
 };
 
 var btnClick = function (event) {
@@ -38,7 +38,7 @@ var btnClick = function (event) {
   if (weatherCity) {
     getFiveDays(weatherCity);
 
-    repoContainerEl.textContent = '';
+    // repoContainerEl.textContent = '';
   }
 };
 
@@ -72,7 +72,7 @@ var getWeatherInfo = function (city) {
 
 var getFiveDays = function (lat,lon,city) {
 
-  var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' +lat +'&lon=' +lon+ '&appid=' + ApiKey + '&units=imperial';
+  var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat +  '&lon=' + lon + '&appid=' + ApiKey + '&units=imperial';
   fetch(weatherUrl)
   .then(function (response) {
     return  response.json() 
@@ -91,7 +91,8 @@ var fiveDayHumidity = document.querySelectorAll('.humidity');
 var displayWeather = function (data) {
  for (var i = 0; i < 5;i++) {
    fiveDayTemp[i].textContent= ' ' + data.daily[i].temp.day;
-   fiveDayWind[i].textContent= ' ' + data.daily[i].wind_speed;
+   //console.log(fiveDayTemp); //also tried data.daily[0].temp.day;
+   fiveDayWind[i].textContent= ' ' + data.daily[i].wind_speed + "mph";
    fiveDayHumidity[i].textContent= ' ' + data.daily[i].humidity;
     return;
   }
