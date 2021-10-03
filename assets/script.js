@@ -17,7 +17,7 @@ var formSubmit = function (event) {
 
   if (cityname) {
     getWeatherInfo(cityname);
-
+    citySearch.textContent = cityname;
     tempContainerEl.textContent = "";
     cityInputEl.value = '';
   } else {
@@ -43,51 +43,59 @@ var btnClick = function (event) {
 };
 
 var getWeatherInfo = function (city) {
-  var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q='  + city + '&appid=' + ApiKey + "&units=imperial";
+  var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q='  + city + '&appid=' + ApiKey + '&units=imperial';
 
   fetch(weatherUrl)
     .then(function (response) {
-      if (response.ok) {
-        console.log(response);
-        response.json().then(function (data) {
+      return response.json();
+    })
+      
+  .then(function (data) {
+    //uvi stuff here
           console.log(data);
           //displayWeather(data, city);
           tempContainerEl.textContent = 'Temp: ' + data.main.temp + ' °F';
           humidityContainerEl.textContent = 'Humidity: ' + data.main.humidity + '%'
-          windspeedContainerEl.textContent = 'Wind Speed: ' + data.wind.speed;
+          windspeedContainerEl.textContent = 'Wind Speed: ' + data.wind.speed + ' mph';
+          var lat = data.coord.lat;
+          var lon = data.coord.lon;
+          getFiveDays(lat,lon,city);
         });
-      } else {
+       /* else {
         alert('Error: ' + response.statusText); 
-      }
-    })
-    .catch(function (error) {
+      }*/
+    /*.catch(function (error) {
       alert('Unable to connect to City');
-    });
+    }); */
 };
 
 
-var getFiveDays = function (fivedays) {
+var getFiveDays = function (lat,lon,city) {
 
-  var weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q='  + fivedays + '&appid=' + ApiKey;
-  fetch(weatherUrl).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        //displayWeather(data.items, fivedays);
-      });
-    } else {
-      alert('Error: ' + response.statusText);
-    }
+  var weatherUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' +lat +'&lon=' +lon+ '&appid=' + ApiKey + '&units=imperial';
+  fetch(weatherUrl)
+  .then(function (response) {
+    return  response.json() 
+  })
+  .then(function (data) {
+        //displayWeather(data.items);
+     displayWeather(data);
   });
+
 };
-
 //NEED TO DISPLAY 5 DAY WEATHER HERE:
+var fiveDayTemp = document.querySelectorAll('.temp');
+var fiveDayWind = document.querySelectorAll('.wind');
+var fiveDayHumidity = document.querySelectorAll('.humidity');
 
-// var displayWeather = function (wx, citySearching) {
-//  for (var i = 0; i<weekAhead.length;i++) {
-//     repoContainerEl.textContent = 'No Weather Information Found';
-//     return;
-//   }
-//   citySearch.textContent = citySearching;
-// };
+var displayWeather = function (data) {
+ for (var i = 0; i < 5;i++) {
+   fiveDayTemp[i].textContent= ' ' + data.daily[i].temp.day;
+   fiveDayWind[i].textContent= ' ' + data.daily[i].wind_speed;
+   fiveDayHumidity[i].textContent= ' ' + data.daily[i].humidity;
+    return;
+  }
+  citySearch.textContent = citySearching;
+};
 
 cityFormEl.addEventListener('submit', formSubmit);
