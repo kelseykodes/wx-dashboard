@@ -80,7 +80,7 @@ var getFiveDays = function (lat,lon,city) {
   })
   .then(function (data) {
         //displayWeather(data.items);
-     displayWeather(data);
+     displayWeather(data, city);
   });
 
 };
@@ -89,15 +89,15 @@ var fiveDayTemp = document.querySelectorAll('.temp');
 var fiveDayWind = document.querySelectorAll('.wind');
 var fiveDayHumidity = document.querySelectorAll('.humidity');
 
-var displayWeather = function (data) {
+var displayWeather = function (data, city) {
  for (var i = 0; i < 5;i++) {
    fiveDayTemp[i].textContent= ' ' + data.daily[i].temp.day;
-   //console.log(fiveDayTemp); //also tried data.daily[0].temp.day;
+   console.log(fiveDayTemp); //also tried data.daily[0].temp.day;
    fiveDayWind[i].textContent= ' ' + data.daily[i].wind_speed + "mph";
    fiveDayHumidity[i].textContent= ' ' + data.daily[i].humidity;
-    return;
   }
-  citySearch.textContent = citySearching;
+  console.log(city);
+  //citySearch.textContent = citySearching;
 };
 
 cityFormEl.addEventListener('submit', formSubmit);
