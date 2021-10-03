@@ -7,8 +7,9 @@ var uviContainerEl = document.querySelector('#uvi-container');
 var humidityContainerEl = document.querySelector('#humidity-container');
 var citySearch = document.querySelector('#city-search');
 var ApiKey='ac6ee46d74fff945f4929327853f7573';
-// var today = moment().format("MMMM Do, YYYY, HH:mm A"); 
-// $("#currentDay").text(today);
+var today = moment().format("MMMM Do, YYYY, hh:mm A"); 
+$("#currentDay").text(today);
+
 
 var formSubmit = function (event) {
   event.preventDefault();
