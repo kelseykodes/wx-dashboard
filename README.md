@@ -13,7 +13,7 @@ This assignment is set to display an updated weather forecast of any city chosen
 - Begin by opening up preferred browser.
 
 ## Usage
-- Type in url: 
+- Type in url: https://kperkins97.github.io/wx-dashboard/
 - User will be see weather dashboard displaying empty weather information cards
 - User will have the ability to locate the weather in any U.S. city.
 - When user types in desired city
@@ -31,6 +31,10 @@ leci Reid, https://github.com/Leci1259
 Followed tutorials: 
 
 Week 6: Class Activity #22
+
+## Website
+https://kperkins97.github.io/wx-dashboard/
+
 
 ## License
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
