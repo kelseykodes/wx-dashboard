@@ -17,7 +17,7 @@ This assignment is set to display an updated weather forecast of any city chosen
 - User will be see weather dashboard displaying empty weather information cards
 - User will have the ability to locate the weather in any U.S. city.
 - When user types in desired city
-- Then the user will can click 'check out the weather' button.
+- Then the user can click 'check out the weather' button.
 - When user clicks 'check out the weather' button
 - Then user will see a card display of the weather conditions in live(current) time.
 - When user scrolls down on webpage
