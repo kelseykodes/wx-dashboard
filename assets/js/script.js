@@ -6,6 +6,7 @@ var windspeedContainerEl = document.querySelector('#windspeed-container');
 var uviContainerEl = document.querySelector('#uvi-container');
 var humidityContainerEl = document.querySelector('#humidity-container');
 var citySearch = document.querySelector('#city-search');
+var btn = document.querySelector('.btn');
 var ApiKey='ac6ee46d74fff945f4929327853f7573';
 var today = moment().format("MMMM Do, YYYY, hh:mm A"); 
 $("#currentDay").text(today);
@@ -90,3 +91,23 @@ var displayWeather = function (data, city) {
 };
 
 cityFormEl.addEventListener('submit', formSubmit);
+
+
+// var appendButton = function (city) {
+    
+//   //append button
+//   var cityButton = $('<input/>').attr({
+//       type: "button",
+//       class: "side-button",
+//       value: city,
+  
+//   });
+
+//   $(".btn").append(cityButton);
+
+
+
+// //change value of storedCity and save it to local storage
+// storedCity=city;
+// localStorage.setItem('storedCity',storedCity);
+// }
