@@ -22,6 +22,7 @@ var formSubmit = function (event) {
     citySearch.textContent = cityname;
     tempContainerEl.textContent = "";
     cityInputEl.value = '';
+    appendButton(cityname);
   } else {
     alert('Please enter a valid city name');
   }
@@ -91,3 +92,21 @@ var displayWeather = function (data, city) {
 };
 
 cityFormEl.addEventListener('submit', formSubmit);
+
+var appendButton = function (city) {
+    
+  //append button
+  var cityButton = $('.btn').attr({
+      type: 'submit',
+      class: 'side-button',
+      value: city,
+  });
+
+  console.log(cityButton)
+
+  // $(".btn").append(cityButton);
+
+  //change value of storedCity and save it to local storage
+  // storedCity=city;
+  // localStorage.setItem('storedCity',storedCity);
+}
