@@ -104,9 +104,9 @@ var appendButton = function (city) {
 
   console.log(cityButton)
 
-  // $(".btn").append(cityButton);
+ $(".btn").append(cityButton);
 
   //change value of storedCity and save it to local storage
-  // storedCity=city;
-  // localStorage.setItem('storedCity',storedCity);
+  storedCity=city;
+  localStorage.setItem('storedCity',storedCity);
 }
