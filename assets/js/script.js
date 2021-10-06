@@ -91,23 +91,3 @@ var displayWeather = function (data, city) {
 };
 
 cityFormEl.addEventListener('submit', formSubmit);
-
-
-// var appendButton = function (city) {
-    
-//   //append button
-//   var cityButton = $('<input/>').attr({
-//       type: "button",
-//       class: "side-button",
-//       value: city,
-  
-//   });
-
-//   $(".btn").append(cityButton);
-
-
-
-// //change value of storedCity and save it to local storage
-// storedCity=city;
-// localStorage.setItem('storedCity',storedCity);
-// }
