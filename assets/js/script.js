@@ -7,6 +7,7 @@ var uviContainerEl = document.querySelector('#uvi-container');
 var humidityContainerEl = document.querySelector('#humidity-container');
 var citySearch = document.querySelector('#city-search');
 var btn = document.querySelector('.btn');
+var selectCity= document.querySelector('.select-city')
 var ApiKey='ac6ee46d74fff945f4929327853f7573';
 var today = moment().format("MMMM Do, YYYY, hh:mm A"); 
 $("#currentDay").text(today);
@@ -93,20 +94,67 @@ var displayWeather = function (data, city) {
 
 cityFormEl.addEventListener('submit', formSubmit);
 
-var appendButton = function (city) {
+
+//APPENDING BUTTON
+var searchHistory = document.createElement('button');
+var historyBtn = document.getElementById('search-history');
+//historyBtn.textContent = citySearch;
+console.log(historyBtn);
+
+//historyBtn.append(button)
+
+//build button up and add event listener to it
+//historyBtn.addEventListener('click', )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var appendButton = function (city) {
     
-  //append button
-  var cityButton = $('.btn').attr({
-      type: 'submit',
-      class: 'side-button',
-      value: city,
-  });
+//   //append button
+//   var cityButton = $('.btn').attr({
+//       type: 'submit',
+//       class: 'side-button',
+//       value: city,
+//   });
 
-  console.log(cityButton)
+//   console.log(cityButton)
 
- $(".btn").append(cityButton);
+//  $(".selecet-city").append(cityButton);
 
-  //change value of storedCity and save it to local storage
-  storedCity=city;
-  localStorage.setItem('storedCity',storedCity);
-}
+//   //change value of storedCity and save it to local storage
+//   storedCity=city;
+//   localStorage.setItem('storedCity',storedCity);
+// }
+
+//create element
+// within element assign text context
+//get elemetbyid for elem
+//appendChild
+//btn.appendChild
